@@ -68,41 +68,23 @@ async function initDb() {
       );
     `);
     
+    console.log('📦 Syncing PostgreSQL database with latest storage.json data...');
     const localData = readLocalJson();
-    const res = await pool.query("SELECT content FROM gamerhub_store WHERE id = 'players'");
-    
-    let shouldUpdate = false;
-    if (res.rows.length === 0) {
-      shouldUpdate = true;
-    } else {
-      const dbPlayers = res.rows[0].content || [];
-      const hasLuximoDb = dbPlayers.some(p => p.nickname === 'luximo' || p.nickname === 'Luximo');
-      const hasLuximoLocal = localData.players && localData.players.some(p => p.nickname === 'luximo' || p.nickname === 'Luximo');
-      if (!hasLuximoDb && hasLuximoLocal) {
-        shouldUpdate = true;
-      }
-    }
-
-    if (shouldUpdate) {
-      console.log('📦 Seeding/Updating PostgreSQL database with latest storage.json data...');
-      await pool.query(
-        `INSERT INTO gamerhub_store (id, content) VALUES
-         ('players', $1),
-         ('teams', $2),
-         ('games', $3),
-         ('tournaments', $4)
-         ON CONFLICT (id) DO UPDATE SET content = EXCLUDED.content, updated_at = CURRENT_TIMESTAMP;`,
-        [
-          JSON.stringify(localData.players || []),
-          JSON.stringify(localData.teams || []),
-          JSON.stringify(localData.games || []),
-          JSON.stringify(localData.tournaments || [])
-        ]
-      );
-      console.log('✅ PostgreSQL database updated successfully with latest profiles!');
-    } else {
-      console.log('✅ PostgreSQL database connected and up-to-date.');
-    }
+    await pool.query(
+      `INSERT INTO gamerhub_store (id, content) VALUES
+       ('players', $1),
+       ('teams', $2),
+       ('games', $3),
+       ('tournaments', $4)
+       ON CONFLICT (id) DO UPDATE SET content = EXCLUDED.content, updated_at = CURRENT_TIMESTAMP;`,
+      [
+        JSON.stringify(localData.players || []),
+        JSON.stringify(localData.teams || []),
+        JSON.stringify(localData.games || []),
+        JSON.stringify(localData.tournaments || [])
+      ]
+    );
+    console.log('✅ PostgreSQL database force-synced successfully with latest profiles!');
   } catch (err) {
     console.error('❌ Error initializing PostgreSQL database:', err.message);
   }
