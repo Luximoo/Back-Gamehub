@@ -68,16 +68,30 @@ async function initDb() {
       );
     `);
     
-    const res = await pool.query('SELECT count(*) FROM gamerhub_store');
-    if (parseInt(res.rows[0].count) === 0) {
-      console.log('📦 Database is empty. Seeding initial data from storage.json...');
-      const localData = readLocalJson();
+    const localData = readLocalJson();
+    const res = await pool.query("SELECT content FROM gamerhub_store WHERE id = 'players'");
+    
+    let shouldUpdate = false;
+    if (res.rows.length === 0) {
+      shouldUpdate = true;
+    } else {
+      const dbPlayers = res.rows[0].content || [];
+      const hasLuximoDb = dbPlayers.some(p => p.nickname === 'luximo' || p.nickname === 'Luximo');
+      const hasLuximoLocal = localData.players && localData.players.some(p => p.nickname === 'luximo' || p.nickname === 'Luximo');
+      if (!hasLuximoDb && hasLuximoLocal) {
+        shouldUpdate = true;
+      }
+    }
+
+    if (shouldUpdate) {
+      console.log('📦 Seeding/Updating PostgreSQL database with latest storage.json data...');
       await pool.query(
         `INSERT INTO gamerhub_store (id, content) VALUES
          ('players', $1),
          ('teams', $2),
          ('games', $3),
-         ('tournaments', $4);`,
+         ('tournaments', $4)
+         ON CONFLICT (id) DO UPDATE SET content = EXCLUDED.content, updated_at = CURRENT_TIMESTAMP;`,
         [
           JSON.stringify(localData.players || []),
           JSON.stringify(localData.teams || []),
@@ -85,9 +99,9 @@ async function initDb() {
           JSON.stringify(localData.tournaments || [])
         ]
       );
-      console.log('✅ PostgreSQL database seeded successfully with initial data!');
+      console.log('✅ PostgreSQL database updated successfully with latest profiles!');
     } else {
-      console.log('✅ PostgreSQL database connected and active.');
+      console.log('✅ PostgreSQL database connected and up-to-date.');
     }
   } catch (err) {
     console.error('❌ Error initializing PostgreSQL database:', err.message);
