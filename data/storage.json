@@ -1,0 +1,343 @@
+{
+  "players": [
+    {
+      "id": "p1",
+      "name": "David",
+      "nickname": "luximo",
+      "role": "admin",
+      "avatar": "https://tse1.mm.bing.net/th/id/OIP.9CyMJSzP9bu2bAp-P4x35wHaLM?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+      "discord": "davidluxi50#3307",
+      "steam": "davidluxi50",
+      "riot": "aun no lo se jaja",
+      "psn": "Davovich_Play",
+      "xbox": "DavoX",
+      "teamId": "t_1786145011266",
+      "selectedGames": [
+        "g_fn",
+        "g_cr",
+        "g_lol",
+        "g_l4d2",
+        "g_fg",
+        "g_mr",
+        "g_fifa",
+        "g_rl",
+        "g_au"
+      ]
+    },
+    {
+      "id": "p_1786156234947",
+      "name": "prueba",
+      "nickname": "dadad",
+      "avatar": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&auto=format&fit=crop&q=80",
+      "discord": "",
+      "steam": "",
+      "riot": "",
+      "psn": "",
+      "xbox": "",
+      "teamId": "t_1786145025530",
+      "selectedGames": [],
+      "pin": "6253"
+    }
+  ],
+  "teams": [
+    {
+      "id": "t_1786145011266",
+      "name": "Politécnica ",
+      "tag": "Poli",
+      "color": "#38bdf8",
+      "logo": "⚔️",
+      "description": ""
+    },
+    {
+      "id": "t_1786145025530",
+      "name": "Autonoma ",
+      "tag": "Auto",
+      "color": "#38bdf8",
+      "logo": "🛡️",
+      "description": ""
+    }
+  ],
+  "games": [
+    {
+      "id": "g_fn",
+      "name": "Fortnite",
+      "category": "Battle Royale / Survival",
+      "platforms": [
+        "PC",
+        "PS5",
+        "Xbox",
+        "Switch"
+      ],
+      "format": "1v1 Zone Wars / Battle Royale Kills",
+      "availableModes": [
+        "Zone Wars 1v1",
+        "Battle Royale (Top + Kills)",
+        "Box Fights 2v2"
+      ],
+      "modeFormats": {
+        "Zone Wars 1v1": "1v1",
+        "Battle Royale (Top + Kills)": "ffa",
+        "Box Fights 2v2": "2v2"
+      },
+      "banner": "https://images.unsplash.com/photo-1589241062272-c0a000072dfa?w=500&auto=format&fit=crop&q=80"
+    },
+    {
+      "id": "g_cr",
+      "name": "Clash Royale",
+      "category": "Estrategia / Cartas",
+      "platforms": [
+        "iOS",
+        "Android"
+      ],
+      "format": "1v1 Duelo de Mazos",
+      "availableModes": [
+        "1v1 Mazo Normal",
+        "1v1 Elección (Triple Draft)",
+        "1v1 Mazo de Evento"
+      ],
+      "modeFormats": {
+        "1v1 Mazo Normal": "1v1",
+        "1v1 Elección (Triple Draft)": "1v1",
+        "1v1 Mazo de Evento": "1v1"
+      },
+      "banner": "https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?w=500&auto=format&fit=crop&q=80"
+    },
+    {
+      "id": "g_lol",
+      "name": "League of Legends",
+      "category": "MOBA",
+      "platforms": [
+        "PC"
+      ],
+      "format": "1v1 ARAM / 5v5 Summoner's Rift",
+      "availableModes": [
+        "1v1 ARAM (1ª Sangre / 100 Farm / 1ª Torre)",
+        "5v5 Summoner's Rift",
+        "Custom ARAM FFA"
+      ],
+      "modeFormats": {
+        "1v1 ARAM (1ª Sangre / 100 Farm / 1ª Torre)": "1v1",
+        "5v5 Summoner's Rift": "team",
+        "Custom ARAM FFA": "ffa"
+      },
+      "banner": "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=500&auto=format&fit=crop&q=80"
+    },
+    {
+      "id": "g_l4d2",
+      "name": "Left 4 Dead 2",
+      "category": "Coop / Versus Horror",
+      "platforms": [
+        "PC"
+      ],
+      "format": "Modo Versus (Infectados vs Supervivientes)",
+      "availableModes": [
+        "Modo Versus (Distancia + Daño)",
+        "Campañas por Tiempo Speedrun"
+      ],
+      "modeFormats": {
+        "Modo Versus (Distancia + Daño)": "team",
+        "Campañas por Tiempo Speedrun": "team"
+      },
+      "banner": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=500&auto=format&fit=crop&q=80"
+    },
+    {
+      "id": "g_fg",
+      "name": "Fall Guys",
+      "category": "Party / Obstáculos FFA",
+      "platforms": [
+        "PC",
+        "PS5",
+        "Xbox",
+        "Switch"
+      ],
+      "format": "Todos contra Todos (FFA)",
+      "availableModes": [
+        "FFA (Puntos por Ronda Alcanzada)",
+        "Corona Final (50 pts al Campeón)"
+      ],
+      "modeFormats": {
+        "FFA (Puntos por Ronda Alcanzada)": "ffa",
+        "Corona Final (50 pts al Campeón)": "ffa"
+      },
+      "banner": "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=500&auto=format&fit=crop&q=80"
+    },
+    {
+      "id": "g_mr",
+      "name": "Marvel Rivals",
+      "category": "Hero Shooter",
+      "platforms": [
+        "PC",
+        "PS5",
+        "Xbox"
+      ],
+      "format": "6v6 / 3v3 Custom Match",
+      "availableModes": [
+        "3v3 / 6v6 Custom Match por Mapas",
+        "1v1 Duelo de Héroes"
+      ],
+      "modeFormats": {
+        "3v3 / 6v6 Custom Match por Mapas": "team",
+        "1v1 Duelo de Héroes": "1v1"
+      },
+      "banner": "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?w=500&auto=format&fit=crop&q=80"
+    },
+    {
+      "id": "g_fifa",
+      "name": "EA SPORTS FC / FIFA",
+      "category": "Deportes / Fútbol",
+      "platforms": [
+        "PC",
+        "PS5",
+        "Xbox"
+      ],
+      "format": "1v1 / 2v2 Co-op",
+      "availableModes": [
+        "1v1 Partido Único (90 min)",
+        "1v1 Ida y Vuelta (Global)",
+        "2v2 Co-op Teams"
+      ],
+      "modeFormats": {
+        "1v1 Partido Único (90 min)": "1v1",
+        "1v1 Ida y Vuelta (Global)": "1v1",
+        "2v2 Co-op Teams": "2v2"
+      },
+      "banner": "https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=500&auto=format&fit=crop&q=80"
+    },
+    {
+      "id": "g_rl",
+      "name": "Rocket League",
+      "category": "Vehículos / Deportes",
+      "platforms": [
+        "PC",
+        "PS5",
+        "Xbox",
+        "Switch"
+      ],
+      "format": "1v1, 2v2 o 3v3",
+      "availableModes": [
+        "2v2 Co-op (Mejor de 3)",
+        "1v1 Duelo Directo",
+        "3v3 (Mejor de 5)"
+      ],
+      "modeFormats": {
+        "2v2 Co-op (Mejor de 3)": "2v2",
+        "1v1 Duelo Directo": "1v1",
+        "3v3 (Mejor de 5)": "team"
+      },
+      "banner": "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=500&auto=format&fit=crop&q=80"
+    },
+    {
+      "id": "g_au",
+      "name": "Among Us",
+      "category": "Deducción Social",
+      "platforms": [
+        "PC",
+        "PS5",
+        "Xbox",
+        "Switch",
+        "iOS",
+        "Android"
+      ],
+      "format": "Todos contra Todos (FFA)",
+      "availableModes": [
+        "FFA (Puntos por Victoria Impostor / Tripulante)",
+        "Hide & Seek (Escondite)"
+      ],
+      "modeFormats": {
+        "FFA (Puntos por Victoria Impostor / Tripulante)": "ffa",
+        "Hide & Seek (Escondite)": "ffa"
+      },
+      "banner": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=500&auto=format&fit=crop&q=80"
+    }
+  ],
+  "tournaments": [
+    {
+      "id": "tourney_1786156448503",
+      "name": "Gran Torneo Multijuego",
+      "description": "",
+      "status": "in_progress",
+      "createdAt": "2026-08-08",
+      "participatingPlayerIds": [
+        "p1",
+        "p_1786156234947"
+      ],
+      "participatingTeamIds": [
+        "t_1786145011266",
+        "t_1786145025530"
+      ],
+      "rounds": [
+        {
+          "id": "r_1786156448496_0",
+          "roundNumber": 1,
+          "gameId": "g_fn",
+          "gameName": "Fortnite",
+          "selectedMode": "Battle Royale (Top + Kills)",
+          "format": "ffa",
+          "status": "pending",
+          "matches": [
+            {
+              "id": "m_1786156448496_0_1",
+              "name": "Partida 1",
+              "format": "ffa",
+              "rankings": [
+                {
+                  "playerId": "p1",
+                  "teamId": "t_1786145011266",
+                  "placement": 0,
+                  "points": 0
+                },
+                {
+                  "playerId": "p_1786156234947",
+                  "teamId": "t_1786145025530",
+                  "placement": 0,
+                  "points": 0
+                }
+              ],
+              "status": "pending"
+            },
+            {
+              "id": "m_1786156454100_1",
+              "name": "Partida 2",
+              "format": "ffa",
+              "rankings": [
+                {
+                  "playerId": "p1",
+                  "teamId": "t_1786145011266",
+                  "placement": 0,
+                  "points": 0
+                },
+                {
+                  "playerId": "p_1786156234947",
+                  "teamId": "t_1786145025530",
+                  "placement": 0,
+                  "points": 0
+                }
+              ],
+              "status": "pending"
+            },
+            {
+              "id": "m_1786156557655_2",
+              "name": "Partida 3",
+              "format": "ffa",
+              "rankings": [
+                {
+                  "playerId": "p1",
+                  "teamId": "t_1786145011266",
+                  "placement": 0,
+                  "points": 0
+                },
+                {
+                  "playerId": "p_1786156234947",
+                  "teamId": "t_1786145025530",
+                  "placement": 0,
+                  "points": 0
+                }
+              ],
+              "status": "pending"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
