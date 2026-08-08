@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 5000;
 
 // Middleware
 const corsOptions = {
-  origin: process.env.CLIENT_URL || '*',
+  origin: true, // Dynamic origin reflection for CORS credentials support
   credentials: true
 };
 app.use(cors(corsOptions));
