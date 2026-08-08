@@ -68,23 +68,29 @@ async function initDb() {
       );
     `);
     
-    console.log('📦 Syncing PostgreSQL database with latest storage.json data...');
-    const localData = readLocalJson();
-    await pool.query(
-      `INSERT INTO gamerhub_store (id, content) VALUES
-       ('players', $1),
-       ('teams', $2),
-       ('games', $3),
-       ('tournaments', $4)
-       ON CONFLICT (id) DO UPDATE SET content = EXCLUDED.content, updated_at = CURRENT_TIMESTAMP;`,
-      [
-        JSON.stringify(localData.players || []),
-        JSON.stringify(localData.teams || []),
-        JSON.stringify(localData.games || []),
-        JSON.stringify(localData.tournaments || [])
-      ]
-    );
-    console.log('✅ PostgreSQL database force-synced successfully with latest profiles!');
+    // Check if database already contains records
+    const res = await pool.query('SELECT count(*) FROM gamerhub_store');
+    if (parseInt(res.rows[0].count) === 0) {
+      console.log('📦 Database is empty. Performing initial seed from storage.json...');
+      const localData = readLocalJson();
+      await pool.query(
+        `INSERT INTO gamerhub_store (id, content) VALUES
+         ('players', $1),
+         ('teams', $2),
+         ('games', $3),
+         ('tournaments', $4)
+         ON CONFLICT (id) DO NOTHING;`,
+        [
+          JSON.stringify(localData.players || []),
+          JSON.stringify(localData.teams || []),
+          JSON.stringify(localData.games || []),
+          JSON.stringify(localData.tournaments || [])
+        ]
+      );
+      console.log('✅ PostgreSQL database seeded successfully with initial data!');
+    } else {
+      console.log('✅ PostgreSQL database connected. Preserving live user registrations.');
+    }
   } catch (err) {
     console.error('❌ Error initializing PostgreSQL database:', err.message);
   }
